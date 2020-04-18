@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -15,11 +16,14 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
 			// criação da instancia loader do tipo FXMLLoader pegando a view que foi criada 
 			
-			Parent parent = loader.load();
-			// chamamos através do objeto loader o método load que carrega a view 
+			ScrollPane scrollPane = loader.load();
+			// Trocamos o parent por ScrollPane para ele instanciar o objeto correto 
 			
-			Scene mainScene = new Scene(parent); 
-// criação do objeto scene que vai ser a minha cena principal passando como argumento o objeto principal da minha view (parent)
+			scrollPane.setFitToHeight(true); // preenche toda altura
+			scrollPane.setFitToWidth(true); // preenche toda largura 
+			
+			Scene mainScene = new Scene(scrollPane); 
+// criação do objeto scene que vai ser a minha cena principal passando como argumento o objeto principal da minha view (agora o ScrollPane)
 			primaryStage.setScene(mainScene);
 			//vai ser o palco da minha cena 
 			primaryStage.setTitle("Sample JavaFX application"); // titulo da minha cena 
