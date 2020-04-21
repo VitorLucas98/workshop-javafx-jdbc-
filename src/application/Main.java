@@ -10,6 +10,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+	private static Scene mainScene;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -22,7 +24,7 @@ public class Main extends Application {
 			scrollPane.setFitToHeight(true); // preenche toda altura
 			scrollPane.setFitToWidth(true); // preenche toda largura 
 			
-			Scene mainScene = new Scene(scrollPane); 
+			mainScene = new Scene(scrollPane); 
 // criação do objeto scene que vai ser a minha cena principal passando como argumento o objeto principal da minha view (agora o ScrollPane)
 			primaryStage.setScene(mainScene);
 			//vai ser o palco da minha cena 
@@ -31,6 +33,9 @@ public class Main extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	public static Scene getMainScene() { // método criado para outras classe poderem pegar referencia da cena principal 
+		return mainScene;
 	}
 
 	public static void main(String[] args) {
