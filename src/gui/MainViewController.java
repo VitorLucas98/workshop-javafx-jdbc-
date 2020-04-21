@@ -32,7 +32,7 @@ public class MainViewController implements Initializable {
 	}
 
 	public void onMenuItemDepartmentAction() {
-		System.out.println("onMenuItemDepartmentAction");
+		loadView("/gui/DepartmentList.fxml");
 	}
 
 	public void onMenuItemAboutAction() { // método que irá chamar uma nova tela ao clicar no botão 'About'(Sobre)
